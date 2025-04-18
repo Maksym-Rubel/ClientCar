@@ -1,0 +1,19 @@
+﻿<Window x:Class="ClientCar.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ClientCar"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    
+    <DockPanel LastChildFill="True">
+
+        <TextBox Name="srcTextBox" Width="800" Height="50" VerticalContentAlignment="Center" HorizontalAlignment="Left" DockPanel.Dock="Top"></TextBox>
+        
+        <Button Click="SearchBtn" Height="50" Width="800" DockPanel.Dock="Top">Search</Button>
+        <Button Click="ConnectBtn" Height="50" Width="800" DockPanel.Dock="Top">Connected</Button>
+
+        <ListBox DockPanel.Dock="Bottom"  Name="lb1" ></ListBox>
+    </DockPanel>
+</Window>
