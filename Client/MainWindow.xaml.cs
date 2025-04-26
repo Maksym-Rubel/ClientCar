@@ -11,10 +11,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using System.Collections.ObjectModel;
-using System.Configuration;
 
-namespace ClientCar
+namespace Client
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -28,37 +26,35 @@ namespace ClientCar
         NetworkStream ns = null;
         StreamWriter sw = null;
         StreamReader sr = null;
-        
         public MainWindow()
         {
-            InitializeComponent();
             client = new TcpClient();
+
             
+            InitializeComponent();
+            IpTextBox.Text = serverAddress;
+            PortTextBox.Text = port.ToString();
             serverPoint = new IPEndPoint(IPAddress.Parse(serverAddress), port);
-           
+
         }
 
-        private void SearchBtn(object sender, RoutedEventArgs e)
+        private void SndBtn(object sender, RoutedEventArgs e)
         {
-            
-            string message = srcTextBox.Text;
-            srcTextBox.Text = "";
+            string message = MsgTextBox.Text;
+            MsgTextBox.Text = "";
             sw.WriteLine(message);
             sw.Flush();
-            
-
         }
-        
         private async void Listener()
         {
-            
+
             while (true)
             {
                 try
                 {
-                    
+
                     string? message = await sr.ReadLineAsync();
-                    lb1.Items.Clear();
+                    
                     lb1.Items.Add(message);
                 }
                 catch (Exception ex)
@@ -90,4 +86,7 @@ namespace ClientCar
             }
         }
     }
+
+  
+
 }
