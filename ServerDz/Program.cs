@@ -6,14 +6,14 @@ using System.IO;
 
 public class Siriazeble()
 {
-    public string Words { get; set; }
-    public string Vidpovid { get; set; }
+    public string Index { get; set; }
+    public string Vulucia { get; set; }
 }
 
 public class CharServer
 {
 
-   
+
     const int port = 4040;
 
     TcpListener server;
@@ -42,27 +42,26 @@ public class CharServer
             Console.WriteLine($"{DateTime.Now.ToLongTimeString()}  -- {vin} --  from {client.Client.LocalEndPoint}");
 
             bool answeradd = false;
-            foreach(var item in _qaList)
+            foreach (var item in _qaList)
             {
-                if (item.Words.Contains(vin))
+                if (item.Index == vin)
                 {
-                    sw.WriteLine($"You --> {vin}");
+                   
 
-                    sw.WriteLine($"Bot --> {item.Vidpovid}");
+                    sw.WriteLine($"Vulucia --> {item.Vulucia}");
                     sw.Flush();
                     answeradd = true;
-                    break;
+                    
                 }
 
             }
-            if(!answeradd)
+            if (!answeradd)
             {
-                sw.WriteLine($"You --> {vin}");
-                sw.WriteLine($"Bot --> I don1t know");
+                sw.WriteLine($"I don1t know this index");
                 sw.Flush();
             }
 
-            
+
 
 
         }
